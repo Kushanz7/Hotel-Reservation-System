@@ -1,0 +1,98 @@
+﻿<Window x:Class="HotelReservationSystem.Rooms"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelReservationSystem"
+        mc:Ignorable="d"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="Rooms" Height="450" Width="750">
+    <Grid>
+        <Button Name="btnBackToDashboard" Content="&lt;&lt; Back to Dashboard" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="180" Height="25" Margin="5,0,0,412" Click="BackButton_Click" FontSize="16" Background="White" BorderBrush="White" FontFamily="Yu Gothic UI Semibold" Cursor="Hand"/>
+        <Button Name="btnClose" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="30" Margin="0,5,5,0" Click="CloseButton_Click" BorderThickness="0,0,0,12" BorderBrush="White" Background="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="227,8,0,0" Width="459">
+            <Label Content="Filter by:" FontSize="16" Height="33" Width="85" FontWeight="Bold"/>
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Label Content="Room Type" FontSize="11"/>
+                <ComboBox Name="cmbFilterRoomType" Width="120" Height="20" KeyUp="cmbFilterRoomType_KeyUp">
+                    <ComboBoxItem Content="Single Room"/>
+                    <ComboBoxItem Content="King Room"/>
+                    <ComboBoxItem Content="Suite Room"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10"/>
+            <Button Name="btnSearch" Content="Search" Width="75" Height="30" Margin="10" Foreground="White" FontWeight="Bold" Click="btnSearch_Click" Cursor="Hand">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4A4CE6"/>
+                        <GradientStop Color="#FF1B1D71" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,74,0,0">
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Label Content="Room Type"/>
+                <ComboBox Name="cmbRoomType" Width="150">
+                    <ComboBoxItem Content="Single Room"/>
+                    <ComboBoxItem Content="King Room"/>
+                    <ComboBoxItem Content="Suite Room"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Label Content="Room ID"/>
+                <TextBox Name="txtRoomID" Width="150" Height="22"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Label Content="View"/>
+                <ComboBox Name="cmbView" Width="150">
+                    <ComboBoxItem Content="Ocean View"/>
+                    <ComboBoxItem Content="City View"/>
+                    <ComboBoxItem Content="Garden View"/>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10">
+                <Label Content="Availability"/>
+                <ComboBox Name="cmbAvailability" Width="150">
+                    <ComboBoxItem Content="Available"/>
+                    <ComboBoxItem Content="Unavailable"/>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,10,0,10" Cursor="Hand">
+            <Button Name="btnAdd" Content="Add" Width="75" Height="30" Margin="10" Foreground="White" FontWeight="Bold" Click="Button_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4A4CE6"/>
+                        <GradientStop Color="#FF1B1D71" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Name="btnUpdate" Content="Update" Width="75" Margin="10" Foreground="White" FontWeight="Bold" Click="btnUpdate_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4A4CE6"/>
+                        <GradientStop Color="#FF1B1D71" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Name="btnClear" Content="Clear" Width="75" Margin="10" Foreground="White" FontWeight="Bold" Click="btnClear_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4A4CE6"/>
+                        <GradientStop Color="#FF1B1D71" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Name="btnDelete" Content="Delete" Width="75" Margin="10" Foreground="White" FontWeight="Bold" Click="btnDelete_Click">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFE64A4A"/>
+                        <GradientStop Color="#FF711B1B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+        <DataGrid Name="dataGridRooms" HorizontalAlignment="Center" Margin="0,162,0,80" Width="438" SelectionChanged="dataGridRooms_SelectionChanged" BorderBrush="{x:Null}"/>
+    </Grid>
+</Window>

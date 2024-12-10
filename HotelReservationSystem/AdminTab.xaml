@@ -1,0 +1,211 @@
+﻿<Window x:Class="HotelReservationSystem.AdminTab"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelReservationSystem"
+        mc:Ignorable="d"
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Title="AdminTab" Height="550" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <Button Name="btnBackToDashboard" Content="&lt;&lt; Back to Dashboard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Height="25" Margin="5,5,0,0" Click="BackButton_Click" FontSize="16" Background="White" BorderBrush="White" FontFamily="Yu Gothic UI Semibold" Cursor="Hand"/>
+        <Button Name="btnClose" Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" Height="30" Margin="0,5,5,0" Click="CloseButton_Click" BorderThickness="0,0,0,12" BorderBrush="White" Background="White" FontSize="16" FontWeight="Bold" Cursor="Hand"/>
+        <TabControl TabStripPlacement="Top" Margin="0,30,0,0">
+            <TabItem Header="Login and Price" Margin="0,0,0,0" Cursor="Hand">
+                <Grid Height="461">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="94*"/>
+                        <RowDefinition Height="86*"/>
+                        <RowDefinition Height="87*"/>
+                        <RowDefinition Height="31*"/>
+                        <RowDefinition Height="136*"/>
+                        <RowDefinition Height="28*"/>
+                    </Grid.RowDefinitions>
+                    <Rectangle RadiusX="7" RadiusY="7" HorizontalAlignment="Left" Height="471" Margin="20,1,0,0" VerticalAlignment="Top" Width="425" Grid.RowSpan="6">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF604AF9"/>
+                                <GradientStop Color="#FF35298C" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Rectangle RadiusX="7" RadiusY="7" Height="471" Margin="460,1,16,0" VerticalAlignment="Top" Grid.RowSpan="6">
+                        <Rectangle.Fill>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF604AF9"/>
+                                <GradientStop Color="#FF35298C" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <Button Content="REPORT" HorizontalAlignment="Left" VerticalAlignment="Top" Height="35" Width="182" FontSize="20" Click="Report_Click" BorderBrush="#FF3700FF" Foreground="#FF1A0079" Background="White" Cursor="Hand" Margin="252,14,0,0"/>
+
+                    <DataGrid Name="AdminLogDataGridView" Margin="494,15,188,43" SelectionChanged="AdminLogDataGridView_SelectionChanged" Grid.Row="3" Grid.RowSpan="2" BorderBrush="{x:Null}"/>
+                    <DataGrid Name="FrontLogDataGridView" Margin="494,84,188,82" SelectionChanged="FrontLogDataGridView_SelectionChanged" Grid.RowSpan="3" BorderBrush="{x:Null}"/>
+                    <DataGrid Name="RoomPriceDataGridView" Margin="70,82,489,3" SelectionChanged="RoomPriceDataGridView_SelectionChanged" Grid.RowSpan="3" BorderBrush="{x:Null}"/>
+                    <Button Name="btnUpdate" Content="Update" Margin="203,69,622,35" Foreground="White" FontWeight="Bold" Click="btnUpdate_Click" Grid.Row="4">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4A4CE6"/>
+                                <GradientStop Color="#FF1B1D71" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Name="btnAdminDelete" Content="Delete" Margin="675,105,150,0" Foreground="White" FontWeight="Bold" Click="btnAdminDelete_Click" Grid.Row="4">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFE64A4A"/>
+                                <GradientStop Color="#FF711B1B" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Name="btnAdminAdd" Content="Add" Margin="573,0,252,0" Foreground="White" FontWeight="Bold" Click="btnAdminAdd_Click" Grid.Row="4" Height="31" VerticalAlignment="Bottom">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4A4CE6"/>
+                                <GradientStop Color="#FF1B1D71" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+
+                    <Button Name="btnDelete" Content="Delete" Margin="675,17,150,41" Foreground="White" FontWeight="Bold" Click="btnDelete_Click" Grid.Row="2">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFE64A4A"/>
+                                <GradientStop Color="#FF711B1B" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Name="btnAdd" Content="Add" Margin="573,17,252,41" Foreground="White" FontWeight="Bold" Click="Button_Click" Grid.Row="2">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4A4CE6"/>
+                                <GradientStop Color="#FF1B1D71" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Label Content="Price Update" HorizontalAlignment="Left" Margin="70,50,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18" Height="36" Width="118"/>
+                    <Label Content="Admin Login Details" HorizontalAlignment="Left" Margin="494,65,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18" Grid.Row="2" Height="34" Width="181" Grid.RowSpan="2"/>
+                    <Label Content="Front office Login Details" HorizontalAlignment="Left" Margin="493,52,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18" Height="34" Width="223"/>
+                    <Label Name="lblRoomType" Content="Room Type" HorizontalAlignment="Left" Margin="109,9,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Foreground="White" Grid.Row="4" Height="31" Width="95"/>
+                    <TextBox Name="txtPrice" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="216,9,0,0" TextWrapping="Wrap" Text="Price" VerticalAlignment="Top" Width="120" FontSize="16" Grid.Row="4" Height="32"/>
+                    <TextBox Name="txtUsername" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="722,3,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontSize="16" Height="31" Grid.Row="1"/>
+                    <TextBox Name="txtPassword" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="722,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontSize="16" Grid.Row="1" Height="31"/>
+                    <TextBox Name="txtAdminUser" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="722,1,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontSize="16" Grid.Row="4" Height="31"/>
+                    <TextBox Name="txtAdminPass" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="722,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140" FontSize="16" Grid.Row="4" Height="31"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Events" Margin="0,0,0,0" Cursor="Hand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="361*"/>
+                        <RowDefinition Height="74*"/>
+                        <RowDefinition Height="49*"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid VerticalAlignment="Top" Name="EmailGridView" Height="180" Margin="44,48,554,0" BorderThickness="1,1,1,1" BorderBrush="{x:Null}">
+                        <DataGrid.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </DataGrid.Background>
+                    </DataGrid>
+                    <DataGrid VerticalAlignment="Bottom" Name="EventGridView" Height="182" Margin="44,0,554,32" BorderBrush="{x:Null}" SelectionChanged="EventGridView_SelectionChanged" Grid.RowSpan="3">
+                        <DataGrid.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </DataGrid.Background>
+                    </DataGrid>
+                    <Label Content="Event ID" HorizontalAlignment="Left" Margin="383,40,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" FontWeight="Bold" FontSize="18"/>
+                    <Label Content="Event Title" HorizontalAlignment="Left" Margin="383,88,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" FontWeight="Bold" FontSize="18"/>
+                    <Label Content="Event Description" HorizontalAlignment="Left" Margin="383,132,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" FontWeight="Bold" FontSize="18"/>
+                    <Label Content="Highlights" HorizontalAlignment="Left" Margin="384,233,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" FontWeight="Bold" FontSize="18"/>
+                    <Label Content="Time" HorizontalAlignment="Left" Margin="614,308,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" FontWeight="Bold" FontSize="18"/>
+                    <Label Content="Date" HorizontalAlignment="Left" Margin="383,308,0,0" VerticalAlignment="Top" FontFamily="Book Antiqua" FontWeight="Bold" FontSize="18"/>
+                    <TextBox Name="txtEventID" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="688,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="135" BorderThickness="0,0,0,0">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </TextBox.Background>
+                        <TextBox.BorderBrush>
+                            <SolidColorBrush Color="White"/>
+                        </TextBox.BorderBrush>
+                    </TextBox>
+                    <TextBox Name="txtEventTitle" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="585,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" BorderThickness="0,0,0,0" BorderBrush="White" Height="43">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <TextBox Name="txtEventDesc" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="396,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="429" Height="43" BorderThickness="0,0,0,0" BorderBrush="White">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Button Name="btnEDelete" Content="Delete" Margin="754,19,72,25" Foreground="White" FontWeight="Bold" Click="btnEDelete_Click" Grid.Row="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFE64A4A"/>
+                                <GradientStop Color="#FF711B1B" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Name="btnClear" Content="Clear" Margin="449,20,370,24" Foreground="White" FontWeight="Bold" Click="btnClear_Click" Grid.Row="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4A4CE6"/>
+                                <GradientStop Color="#FF1B1D71" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Name="btnEAdd" Content="Add" Margin="654,19,172,25" Foreground="White" FontWeight="Bold" Click="btnEAdd_Click" Grid.Row="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4A4CE6"/>
+                                <GradientStop Color="#FF1B1D71" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button Name="btnEUpdate" Content="Update" Margin="554,20,272,24" Foreground="White" FontWeight="Bold" Click="btnEUpdate_Click" Grid.Row="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4A4CE6"/>
+                                <GradientStop Color="#FF1B1D71" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Label Content="Customer Emails" HorizontalAlignment="Left" Margin="46,20,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic" FontWeight="Bold" FontSize="16"/>
+                    <Label Content="Events" HorizontalAlignment="Left" Margin="46,243,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic" FontWeight="Bold" FontSize="16"/>
+                    <Button Name="btnSend" Content="Send" Margin="604,1,222,19" Foreground="White" FontWeight="Bold" Click="btnEUSend_Click" Grid.Row="2" >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF4A4CE6"/>
+                                <GradientStop Color="#FF1B1D71" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="txthlight1" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="499,230,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="326" BorderThickness="0,0,0,0" BorderBrush="White" Height="30">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <TextBox x:Name="txthlight2" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="500,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="325" BorderThickness="0,0,0,0" BorderBrush="White" Height="29">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <TextBox x:Name="txtdate" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="448,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" BorderThickness="0,0,0,0" BorderBrush="White" Height="29">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <TextBox x:Name="txtTime" Style="{StaticResource RoundedTextBox}" HorizontalAlignment="Left" Margin="696,312,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="125" BorderThickness="0,0,0,0" BorderBrush="White" Height="29">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
